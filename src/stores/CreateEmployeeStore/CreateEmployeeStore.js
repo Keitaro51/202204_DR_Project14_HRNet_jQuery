@@ -25,6 +25,9 @@ class CreateEmployeeStore {
     @observable
     phoneNumber = null;
 
+    @observable
+    dateOfBirth = null;
+
     @action.bound
     setFirstName(firstName) {
         this.firstName = firstName;
@@ -66,6 +69,11 @@ class CreateEmployeeStore {
     }
 
     @action.bound
+    setBirthDate(dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    @action.bound
     saveEmployee() {
         const {
             firstName,
@@ -76,6 +84,7 @@ class CreateEmployeeStore {
             zip,
             email,
             phone,
+            dateOfBirth,
         } = this;
         const employee = {
             firstName,
@@ -86,6 +95,7 @@ class CreateEmployeeStore {
             zip,
             email,
             phone,
+            dateOfBirth,
         }
 
         let employees = JSON.parse(localStorage.getItem('getItems')) || [];
